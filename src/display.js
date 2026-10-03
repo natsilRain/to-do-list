@@ -1,0 +1,3 @@
+const displayConsole = function () {
+    
+}
