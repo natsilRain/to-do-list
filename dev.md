@@ -26,3 +26,4 @@ I know three methods to generate objects using a template:
 2. Using classes
 3. Using factory functions
 
+I have decided to use a factory function. This function is written in `createTodo.js` and will be imported to `index.js`.
