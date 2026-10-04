@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your To-do</title>
+    <title>fishyTasks</title>
     <link rel="icon" type="image/x-icon" href="img/fish.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +13,13 @@
     <div class="content">
         <div class="header">
             <img src="img/fish.png" alt="icon of a fish in water with some sea grass in the background" class="header-icon" />
+
             <h1>fishyTasks</h1>
         </div>
 
         <div class="sidebar">
-            <button type="button" class="new-task-btn">New Task</button>
+            <button type="button" class="new-task-btn" command="show-modal" commandfor="new-task">New Task</button>
+
             <div class="other-sidebar-btns">
                 <button type="button" class="all-tasks-btn">All tasks</button>
                 <button class="favorites-btn">Favorites</button>
@@ -25,12 +27,59 @@
                 <div class="task-groups">
 
                 </div>
-            </div>
         </div>
 
         <div class="main-content">
             
         </div>
     </div>
+
+    <dialog id="new-task" class="new-task-dialog">
+        <form action="" method="" class="new-task-form" />
+            <div class="new-task-header">
+                <h2>New Task</h2>
+
+                <div>
+                    <button type="button">Ok</button>
+                    <button type="button" commandfor="new-task" command="close">X</button>
+                </div>
+            </div>
+
+            <div class="new-task-inputs">
+                <div class="input-fields">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="todoTitle" class="todo-title" />
+                </div>
+
+                <div class="input-fields">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="todoDesc" class="todo-desc" rows="5"></textarea>
+                </div>
+
+                <div class="input-fields">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="todoDate" class="todo-date" />
+                </div>
+            
+                <fieldset>
+                    <legend>Task Priority</legend>
+
+                    <div>
+                        <input type="radio" id="urgent" name="priority" value="urgent" class="task-priority" />
+                        <label for="urgent">Urgent</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="important" name="priority" value="important" class="task-priority" />
+                        <label for="important">Important</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="casual" name="priority" value="casual" class="task-priority" />
+                        <label for="casual">Casual</label>
+                    </div>
+                </fieldset>
+            </div>
+    </dialog>
 </body>
 </html>

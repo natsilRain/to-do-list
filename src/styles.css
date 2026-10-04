@@ -41,11 +41,13 @@ ol, ul {
 
 /* CSS Styles */
 
-.content {
+body {
     font-family: "Sniglet", sans-serif;
+}
 
+.content {
     display: grid;
-    grid-template-columns: 1.5fr 4fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: 100px 4fr;
 
     min-height: 100vh;
@@ -53,10 +55,13 @@ ol, ul {
 
 button {
     cursor: pointer;
+
     border: 2px solid #fafafa;
     border-radius: 20px;
+
     background-color: #eebbc3;
     color: #232946;
+    
     font-weight: bold;
 }
 
@@ -109,6 +114,113 @@ button:hover {
     font-size: 0.9rem;
 }
 
-.main-content {
+.new-task-dialog {
+    min-width: 500px;
+
+    background-color: #232946;
+    color: #b8c1ec;
+
+    border-radius: 20px;
+
+    padding: 20px 30px;
+}
+
+.new-task-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.new-task-header h2 {
+    border-left: 5px solid #eebbc3;
+    border-radius: 8px;
+
+    color: #fffffe;
+
+    padding: 0 10px;
+}
+
+.new-task-header button {
+    border: none;
+    border-radius: 12px;
+
+    color: #232946;
+
+    padding: 8px 15px;
+    margin-left: 10px;
+
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.new-task-dialog label {
+    margin-right: 5px;
+}
+
+.input-fields {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    text-align: right;
+}
+
+.input-fields input {
+    border: none;
+    border-radius: 12px;
+
+    background-color: #fffffe;
+
+    padding: 3px 10px;
+    margin-left: 5px;
+
+    color: #232946;
+}
+
+.input-fields input:focus {
+    outline: none;
+    outline: 2px solid #eebbc3;
+}
+
+.new-task-dialog textarea {
+    border: none;
+    border-radius: 12px;
     
+    background-color: #fffffe;
+
+    padding: 3px 10px;
+    margin-left: 5px;
+
+    color: #232946;
+}
+
+.new-task-dialog textarea {
+    outline: none;
+    outline: 2px solid #eebbc3;
+}
+
+.new-task-dialog fieldset {
+    margin-top: 10px;
+    padding-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    border: 2px solid #b8c1ec;
+    border-radius: 12px;
+}
+
+.new-task-dialog fieldset legend {
+    color: #fffffe;
+    font-weight: bold;
+}
+
+.new-task-inputs > div {
+    margin-bottom: 20px;
+}
+
+fieldset input {
+    margin-left: 10px;
+    margin-right: 5px;
 }
