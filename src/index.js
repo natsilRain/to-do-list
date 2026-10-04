@@ -12,7 +12,9 @@ const toDoBrain = (function () {
     }
 
     addNewTask("Testing Task", "bunch of words and stuff", "06/08/2026", "Urgent");
-    console.log(tasks)
+    addNewTask("Testing Task", "bunch of words and stuff", "06/08/2026", "Urgent");
+    addNewTask("Testing Task", "bunch of words and stuff", "06/08/2026", "Urgent");
+    addNewTask("Testing Task", "bunch of words and stuff", "06/08/2026", "Urgent");
 
     display(tasks);
 })();

@@ -230,3 +230,55 @@ fieldset input {
 .main-content {
     grid-column: 2 / 3;
 }
+
+.task-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    padding: 15px;
+}
+
+.task-list {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    color: #232946;
+
+    background-color: #fffffe;
+
+    border: 2px solid #232946;
+    border-radius: 18px;
+
+    margin: 10px;
+    padding: 20px;
+
+    min-width: 300px;
+}
+
+.task-list h2 {
+    color: #232946;
+}
+
+.due-date {
+    font-size: 0.8rem;
+}
+
+.task-priority {
+    cursor: pointer;
+
+    background-color: #eebbc3;
+    color: #232946;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    max-width: fit-content;
+    margin-top: 15px;
+    padding: 5px 10px;
+
+    border-radius: 8px;
+}

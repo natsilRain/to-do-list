@@ -8,8 +8,8 @@ const display = function (tasks) {
         taskItem.innerHTML = `
             <h3 class="title">${task.title}</h3>
             <p class="task-description">${task.description}</p>
-            <p class="due-date">${task.dueDate}</p>
-            <p class="task-priority" data-priority-btn="${task.itemId}">${task.priority}></p>
+            <p class="due-date">Due: ${task.dueDate}</p>
+            <p class="task-priority" data-priority-btn="${task.itemId}">${task.priority}</p>
         `;
         taskDisplay.appendChild(taskItem);
     });
