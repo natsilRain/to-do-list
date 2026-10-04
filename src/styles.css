@@ -87,6 +87,8 @@ button:hover {
 }
 
 .sidebar {
+    grid-column: 1 / 2;
+
     padding: 20px;
     background-color: #d4d8f0;
 
@@ -223,4 +225,8 @@ button:hover {
 fieldset input {
     margin-left: 10px;
     margin-right: 5px;
+}
+
+.main-content {
+    grid-column: 2 / 3;
 }

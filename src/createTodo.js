@@ -1,4 +1,4 @@
-const createTodo = function (title, description, dueDate, priority)  {
+const createTask = function (title, description, dueDate, priority)  {
     const itemId = crypto.randomUUID();
 
     return {
@@ -10,4 +10,4 @@ const createTodo = function (title, description, dueDate, priority)  {
     };
 };
 
-export {createTodo};
+export {createTask};
