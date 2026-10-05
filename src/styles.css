@@ -248,7 +248,7 @@ fieldset input {
 
     color: #232946;
 
-    background-color: #fffffe;
+    background-color: #d4d8f0;
 
     border: 2px solid #232946;
     border-radius: 18px;
@@ -267,6 +267,11 @@ fieldset input {
     font-size: 0.8rem;
 }
 
+.task-list .task-description {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
 .task-priority {
     cursor: pointer;
 
@@ -280,5 +285,24 @@ fieldset input {
     margin-top: 15px;
     padding: 5px 10px;
 
+    border: 2px solid #fafafa;
     border-radius: 8px;
+}
+
+.task-remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+
+    cursor: pointer;
+
+    background-color: #eebbc3;
+    border: 2px solid #fafafa;
+    border-radius: 16px;
+
+    color: #232946;
+    font-size: 1rem;
+    font-weight: bold;
+
+    padding: 3px 14px;
 }

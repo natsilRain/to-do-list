@@ -12,24 +12,35 @@ const display = function (tasks) {
                 <h3 class="title">${task.title}</h3>
                 <p class="task-description">${task.description}</p>
                 <p class="due-date">Due: ${task.dueDate}</p>
-                <p class="task-priority" data-priority="${task.itemId}">${task.priority}</p>
+                <p class="task-priority" data-task-id="${task.itemId}">${task.priority}</p>
+                <button type="button" class="task-remove-btn" data-task-id="${task.itemId}">-</button>
             `;
-            taskDisplay.appendChild(taskItem);
 
-            const taskPriority = document.querySelector(".task-priority");
+            taskDisplay.appendChild(taskItem);
+            
+            const taskPriority = taskItem.querySelector(".task-priority");
             taskPriority.addEventListener("click", (e) => {
-                const toggle = e.target;
-                const taskId = toggle.dataset.priority;
-                const index = tasks.findIndex(task => task.id === taskId);
+                const toggle = e.currentTarget;
+                const taskId = toggle.dataset.taskId;
+                const index = tasks.findIndex(task => task.itemId === taskId);
 
                 tasks.at(index).togglePriority();
-                tasks.forEach((task) => {
-                    removeAllChildNodes(taskDisplay);
-                });
+                removeAllChildNodes(taskDisplay);
+                display(tasks);
+            });
+
+            const taskRemoveBtn = taskItem.querySelector(".task-remove-btn");
+            taskRemoveBtn.addEventListener("click", (e) => {
+                const button = e.currentTarget;
+                const taskId = button.dataset.taskId;
+                const index = tasks.findIndex(task => task.itemId === taskId);
+
+                tasks.splice(index, 1);
+                removeAllChildNodes(taskDisplay);
                 display(tasks);
             });
         });
-    };
+    }
 };
 
 export {display};
