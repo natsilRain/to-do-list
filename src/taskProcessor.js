@@ -51,4 +51,4 @@ const newTaskProcessor = function () {
     });
 };
 
-export {tasks, newTaskProcessor};
+export {tasks, removeAllChildNodes, newTaskProcessor};
