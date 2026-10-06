@@ -35,13 +35,20 @@ const newTaskBtn = document.querySelector(".new-task-ok-btn");
 
 const newTaskProcessor = function () {
     newTaskBtn.addEventListener("click", (e) => {
+        const taskTitle = document.querySelector(".todo-title");
+        const validityState = taskTitle.validity;
+
+        if (validityState.valueMissing) {
+            taskTitle.setCustomValidity("Add a title to your todo!");
+            taskTitle.reportValidity();
+            return;
+        }
+
         processNewTask();
     
         if (tasks !== undefined) {
-            tasks.forEach((task) => {
-                const taskDisplay = document.querySelector(".task-display");
-                removeAllChildNodes(taskDisplay);
-            });
+            const taskDisplay = document.querySelector(".task-display");
+            removeAllChildNodes(taskDisplay);
         };
         
         saveTodoList(tasks);
