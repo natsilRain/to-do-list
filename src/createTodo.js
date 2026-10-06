@@ -1,16 +1,5 @@
 const createTask = function (title, description, dueDate, priority)  {
     const itemId = crypto.randomUUID();
-
-    const togglePriority = function () {
-        if (this.priority === "urgent") {
-            this.priority  = "important";
-        } else if (this.priority  === "important") {
-            this.priority  = "casual";
-        } else {
-            this.priority  = "urgent";
-        }
-    };
-
     return {
         itemId,
         title,
@@ -21,4 +10,14 @@ const createTask = function (title, description, dueDate, priority)  {
     };
 };
 
-export {createTask};
+const togglePriority = function (task) {
+    if (task.priority === "urgent") {
+        task.priority  = "important";
+    } else if (task.priority  === "important") {
+        task.priority  = "casual";
+    } else {
+        task.priority  = "urgent";
+    }
+};
+
+export { createTask, togglePriority };

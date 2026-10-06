@@ -1,7 +1,8 @@
-import { createTask } from "./createTodo.js";
+import { createTask, togglePriority } from "./createTodo.js";
 import { display } from "./display.js";
+import { saveTodoList } from "./storage.js";
 
-const tasks = [];
+let tasks = JSON.parse(localStorage.getItem("todoList")) || [];
 
 const addNewTask = function (title, description, dueDate, priority) {
     const newTask = new createTask(title, description, dueDate, priority);
@@ -42,7 +43,8 @@ const newTaskProcessor = function () {
                 removeAllChildNodes(taskDisplay);
             });
         };
-    
+        
+        saveTodoList(tasks);
         display(tasks);
     
         newTaskDialog.close();

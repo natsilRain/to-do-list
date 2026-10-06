@@ -1,4 +1,6 @@
 import { removeAllChildNodes } from "./taskProcessor.js";
+import { togglePriority } from "./createTodo.js";
+import { saveTodoList } from "./storage.js";
 
 const display = function (tasks) {
     const taskDisplay = document.querySelector(".task-display");
@@ -24,7 +26,8 @@ const display = function (tasks) {
                 const taskId = toggle.dataset.taskId;
                 const index = tasks.findIndex(task => task.itemId === taskId);
 
-                tasks.at(index).togglePriority();
+                togglePriority(tasks.at(index));
+                saveTodoList(tasks);
                 removeAllChildNodes(taskDisplay);
                 display(tasks);
             });
@@ -36,6 +39,7 @@ const display = function (tasks) {
                 const index = tasks.findIndex(task => task.itemId === taskId);
 
                 tasks.splice(index, 1);
+                saveTodoList(tasks);
                 removeAllChildNodes(taskDisplay);
                 display(tasks);
             });
