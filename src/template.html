@@ -19,14 +19,12 @@
 
         <div class="sidebar">
             <button type="button" class="new-task-btn" command="show-modal" commandfor="new-task">New Task</button>
+            <button type="button" class="new-list-btn" command="show-modal" commandfor="new-list">New List</button>
 
             <div class="other-sidebar-btns">
-                <button type="button" class="all-tasks-btn">All tasks</button>
-                <button class="favorites-btn">Favorites</button>
+                <button type="button" class="all-lists-btn">All Lists</button>
 
-                <div class="task-groups">
-
-                </div>
+                <button type="button" class="default-list">Default List</button>
             </div>
         </div>
 
@@ -36,7 +34,7 @@
     </div>
 
     <dialog id="new-task" class="new-task-dialog">
-        <form action="" method="" class="new-task-form" />
+        <form action="" method="" class="new-task-form">
             <div class="new-task-header">
                 <h2>New Task</h2>
 
@@ -81,6 +79,26 @@
                     </div>
                 </fieldset>
             </div>
+    </dialog>
+
+    <dialog id="new-list" class="new-list-dialog">
+        <form action="" method="" class="new-list-form">
+            <div class="new-list-header">
+                <h2>New Todo List</h2>
+
+                <div>
+                    <button type="button" class="new-list-ok-btn">Ok</button>
+                    <button type="button" commandfor="new-list" command="close">X</button>
+                </div>
+            </div>
+
+            <div class="new-list-inputs">
+                <div class="input-fields">
+                    <label for="name">List Name:</label>
+                    <input type="text" id="name" name="todoListName" class="list-name" required />
+                </div>
+            </div>
+        </form>
     </dialog>
 </body>
 </html>

@@ -47,4 +47,4 @@ const display = function (tasks) {
     }
 };
 
-export {display};
+export { display };

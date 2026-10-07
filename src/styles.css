@@ -47,7 +47,7 @@ body {
 
 .content {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: max(1fr, 150px) 5fr;
     grid-template-rows: 100px 4fr;
 
     min-height: 100vh;
@@ -94,18 +94,16 @@ button:hover {
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.sidebar .new-task-btn {
-    padding: 15px;
-    margin: 5px;
-
-    font-size: large;
 }
 
 .other-sidebar-btns {
     display: flex;
+    flex-direction: column;
+
+    border-top: 2px solid #232946;
+
+    margin-top: 10px;
+    padding-top: 10px;
 }
 
 .other-sidebar-btns button {
@@ -113,10 +111,17 @@ button:hover {
     padding: 10px;
     margin: 5px;
 
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-.new-task-dialog {
+.sidebar .new-task-btn,.new-list-btn {
+    padding: 15px;
+    margin: 5px;
+
+    font-size: large;
+}
+
+.new-task-dialog, .new-list-dialog {
     min-width: 500px;
 
     background-color: #232946;
@@ -127,14 +132,14 @@ button:hover {
     padding: 20px 30px;
 }
 
-.new-task-header {
+.new-task-header, .new-list-header {
     display: flex;
     justify-content: space-between;
 
     margin-bottom: 25px;
 }
 
-.new-task-header h2 {
+.new-task-header h2, .new-list-header h2 {
     border-left: 5px solid #eebbc3;
     border-radius: 8px;
 
@@ -143,7 +148,11 @@ button:hover {
     padding: 0 10px;
 }
 
-.new-task-header button {
+.new-list-header h2 {
+    margin-bottom: 10px;
+}
+
+.new-task-header button, .new-list-header button {
     border: none;
     border-radius: 12px;
 
@@ -156,7 +165,7 @@ button:hover {
     font-weight: bold;
 }
 
-.new-task-dialog label {
+.new-task-dialog label, .new-list-dialog label {
     margin-right: 5px;
 }
 
@@ -218,7 +227,7 @@ button:hover {
     font-weight: bold;
 }
 
-.new-task-inputs > div {
+.new-task-inputs > div, .new-list-inputs > div {
     margin-bottom: 20px;
 }
 
