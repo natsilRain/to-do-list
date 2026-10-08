@@ -205,8 +205,7 @@ button:hover {
     color: #232946;
 }
 
-.new-task-dialog textarea {
-    outline: none;
+.new-task-dialog textarea:focus {
     outline: 2px solid #eebbc3;
 }
 
