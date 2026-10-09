@@ -1,6 +1,5 @@
-import { removeAllChildNodes } from "./taskProcessor.js";
+import { removeAllChildNodes, getActiveTasks, saveCurrentState } from "./taskProcessor.js";
 import { togglePriority } from "./createTodo.js";
-import { saveTodoList } from "./storage.js";
 
 const display = function (tasks) {
     const taskDisplay = document.querySelector(".task-display");
@@ -24,24 +23,32 @@ const display = function (tasks) {
             taskPriority.addEventListener("click", (e) => {
                 const toggle = e.currentTarget;
                 const taskId = toggle.dataset.taskId;
-                const index = tasks.findIndex(task => task.itemId === taskId);
 
-                togglePriority(tasks.at(index));
-                saveTodoList(tasks);
-                removeAllChildNodes(taskDisplay);
-                display(tasks);
+                const activeTasks = getActiveTasks();
+                const index = activeTasks.findIndex(task => task.itemId === taskId);
+
+                if (index !== -1) {
+                    togglePriority(activeTasks.at(index));
+                    saveCurrentState();
+                    removeAllChildNodes(taskDisplay);
+                    display(activeTasks);
+                }
             });
 
             const taskRemoveBtn = taskItem.querySelector(".task-remove-btn");
             taskRemoveBtn.addEventListener("click", (e) => {
                 const button = e.currentTarget;
                 const taskId = button.dataset.taskId;
-                const index = tasks.findIndex(task => task.itemId === taskId);
 
-                tasks.splice(index, 1);
-                saveTodoList(tasks);
-                removeAllChildNodes(taskDisplay);
-                display(tasks);
+                const activeTasks = getActiveTasks();
+                const index = activeTasks.findIndex(task => task.itemId === taskId);
+
+                if (index !== -1) {
+                    activeTasks.splice(index, 1);
+                    saveCurrentState();
+                    removeAllChildNodes(taskDisplay);
+                    display(activeTasks);
+                }
             });
         });
     }

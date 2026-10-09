@@ -47,7 +47,7 @@ body {
 
 .content {
     display: grid;
-    grid-template-columns: max(1fr, 150px) 5fr;
+    grid-template-columns: minmax(200px, 1fr) 6fr;
     grid-template-rows: 100px 4fr;
 
     min-height: 100vh;
@@ -112,6 +112,15 @@ button:hover {
     margin: 5px;
 
     font-size: 1rem;
+}
+
+.active {
+    background-color: #424b7b;
+    color: #fafafa;
+}
+
+.active:hover {
+    background-color: #49569d;
 }
 
 .sidebar .new-task-btn,.new-list-btn {
@@ -258,7 +267,7 @@ fieldset input {
 
     background-color: #d4d8f0;
 
-    border: 2px solid #232946;
+    border: 2px solid #424b7b;
     border-radius: 18px;
 
     margin: 10px;

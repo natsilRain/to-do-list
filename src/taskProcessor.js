@@ -1,13 +1,31 @@
 import { createTask, togglePriority } from "./createTodo.js";
 import { display } from "./display.js";
-import { saveTodoList } from "./storage.js";
+// import { saveTodoList } from "./storage.js";
+import { saveMasterLists, loadMasterLists, saveActiveListName, loadActiveListName } from "./storage.js";
 
-let tasks = JSON.parse(localStorage.getItem("todoList")) || [];
+let allLists = loadMasterLists();
+let currentListName = loadActiveListName();
+
+// let tasks = JSON.parse(localStorage.getItem("todoList")) || [];
+// let allLists = JSON.parse(localStorage.getItem("todoLists")) || { Default: [] };
+// let currentListName = localStorage.getItem("activeListName") || "Default";
+
+const getActiveTasks = () => allLists[currentListName] || [];
+
+const saveCurrentState = () => {
+    saveMasterLists(allLists);
+};
 
 const addNewTask = function (title, description, dueDate, priority) {
     const newTask = new createTask(title, description, dueDate, priority);
 
-    tasks.push(newTask);
+    if (!allLists[currentListName]) {
+        allLists[currentListName] = [];
+    }
+
+    allLists[currentListName].push(newTask);
+
+    // tasks.push(newTask);
 };
 
 const removeAllChildNodes = function(parent) {
@@ -46,18 +64,31 @@ const newTaskProcessor = function () {
 
         processNewTask();
     
-        if (tasks !== undefined) {
-            const taskDisplay = document.querySelector(".task-display");
-            removeAllChildNodes(taskDisplay);
-        };
+        const taskDisplay = document.querySelector(".task-display");
+        removeAllChildNodes(taskDisplay);
         
-        saveTodoList(tasks);
-        display(tasks);
+        // saveTodoList(tasks);
+        // localStorage.setItem("todoLists", JSON.stringify(allLists));
+        saveCurrentState();
+
+        // display(tasks);
+        display(getActiveTasks());
     
         newTaskDialog.close();
-    
         document.querySelector(".new-task-form").reset();
     });
 };
 
-export { tasks, removeAllChildNodes, newTaskProcessor };
+const updateActiveList = function (name) {
+    currentListName = name;
+    saveActiveListName(name);
+};
+
+const createNewListKey = function (name) {
+    if (!allLists[name]) {
+        allLists[name] = [];
+        saveCurrentState();
+    }
+};
+
+export { removeAllChildNodes, newTaskProcessor, getActiveTasks, updateActiveList, createNewListKey, saveCurrentState };

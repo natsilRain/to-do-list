@@ -1,12 +1,16 @@
+import { createNewListKey, updateActiveList, removeAllChildNodes, getActiveTasks } from "./taskProcessor.js";
+import { display } from "./display.js";
+
 const createListBtn = function (listName) {
     const listBtn = document.createElement("button");
-    listBtn.classList.add(".list-btn");
+    listBtn.type = "button";
+    listBtn.classList.add("list-btn");
     listBtn.textContent = listName;
     
     const sidebarBtns = document.querySelector(".other-sidebar-btns");
     sidebarBtns.appendChild(listBtn);
 
-    // add event listener to call stored items from local storage and display them
+    return listBtn;
 };
 
 const newListProcessor = function () {
@@ -25,11 +29,23 @@ const newListProcessor = function () {
         }
 
         const newListName = listName.value;
-        createListBtn(newListName);
+
+        createNewListKey(newListName);
+
+        const newBtn = createListBtn(newListName);
+
+        updateActiveList(newListName);
+
+        const taskDisplay = document.querySelector(".task-display");
+        removeAllChildNodes(taskDisplay);
+        display(getActiveTasks());
+
+        document.querySelectorAll(".list-btn").forEach(btn => btn.classList.remove("active"));
+        newBtn.classList.add("active");
 
         newListDialog.close();
         newListForm.reset();
     });
 };
 
-export { newListProcessor };
+export { newListProcessor, createListBtn };
