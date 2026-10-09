@@ -47,7 +47,7 @@ body {
 
 .content {
     display: grid;
-    grid-template-columns: minmax(200px, 1fr) 6fr;
+    grid-template-columns: minmax(250px, 1fr) 6fr;
     grid-template-rows: 100px 4fr;
 
     min-height: 100vh;
@@ -308,8 +308,8 @@ fieldset input {
 
 .task-remove-btn {
     position: absolute;
-    top: 8px;
-    right: 16px;
+    top: 14px;
+    right: 14px;
 
     cursor: pointer;
 
