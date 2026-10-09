@@ -2,13 +2,25 @@ import { createNewListKey, updateActiveList, removeAllChildNodes, getActiveTasks
 import { display } from "./display.js";
 
 const createListBtn = function (listName) {
+    const sidebarBtns = document.querySelector(".other-sidebar-btns");
+
+    const listWrapper = document.createElement("div");
+    listWrapper.classList.add("list-wrapper");
+    listWrapper.setAttribute("data-list-name", listName);
+
     const listBtn = document.createElement("button");
     listBtn.type = "button";
     listBtn.classList.add("list-btn");
     listBtn.textContent = listName;
     
-    const sidebarBtns = document.querySelector(".other-sidebar-btns");
-    sidebarBtns.appendChild(listBtn);
+    const removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.classList.add("list-remove-btn");
+    removeBtn.textContent = "x";
+    
+    listWrapper.appendChild(listBtn);
+    listWrapper.appendChild(removeBtn);
+    sidebarBtns.appendChild(listWrapper);
 
     return listBtn;
 };

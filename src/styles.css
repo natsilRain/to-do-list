@@ -130,7 +130,7 @@ button:hover {
     font-size: large;
 }
 
-.new-task-dialog, .new-list-dialog {
+.new-task-dialog, .new-list-dialog, .edit-task-dialog {
     min-width: 500px;
 
     background-color: #232946;
@@ -141,14 +141,14 @@ button:hover {
     padding: 20px 30px;
 }
 
-.new-task-header, .new-list-header {
+.new-task-header, .new-list-header, .edit-task-header {
     display: flex;
     justify-content: space-between;
 
     margin-bottom: 25px;
 }
 
-.new-task-header h2, .new-list-header h2 {
+.new-task-header h2, .new-list-header h2, .edit-task-header h2 {
     border-left: 5px solid #eebbc3;
     border-radius: 8px;
 
@@ -161,7 +161,7 @@ button:hover {
     margin-bottom: 10px;
 }
 
-.new-task-header button, .new-list-header button {
+.new-task-header button, .new-list-header button, .edit-task-header button {
     border: none;
     border-radius: 12px;
 
@@ -174,7 +174,7 @@ button:hover {
     font-weight: bold;
 }
 
-.new-task-dialog label, .new-list-dialog label {
+.new-task-dialog label, .new-list-dialog label, .edit-task-header label {
     margin-right: 5px;
 }
 
@@ -202,7 +202,7 @@ button:hover {
     outline: 2px solid #eebbc3;
 }
 
-.new-task-dialog textarea {
+.new-task-dialog textarea, .edit-task-dialog textarea {
     border: none;
     border-radius: 12px;
     
@@ -214,7 +214,7 @@ button:hover {
     color: #232946;
 }
 
-.new-task-dialog textarea:focus {
+.new-task-dialog textarea:focus, .edit-task-dialog textarea:focus {
     outline: 2px solid #eebbc3;
 }
 
@@ -235,7 +235,7 @@ button:hover {
     font-weight: bold;
 }
 
-.new-task-inputs > div, .new-list-inputs > div {
+.new-task-inputs > div, .new-list-inputs > div, .edit-task-inputs > div {
     margin-bottom: 20px;
 }
 
@@ -274,10 +274,6 @@ fieldset input {
     padding: 20px;
 
     min-width: 300px;
-}
-
-.task-list h2 {
-    color: #232946;
 }
 
 .due-date {
@@ -322,4 +318,38 @@ fieldset input {
     font-weight: bold;
 
     padding: 3px 14px;
+}
+
+.task-edit-btn {
+    position: absolute;
+    top: 14px;
+    right: 60px;
+
+    cursor: pointer;
+
+    background-color: #eebbc3;
+    border: 2px solid #fafafa;
+    border-radius: 16px;
+
+    color: #232946;
+    font-size: 1rem;
+    font-weight: bold;
+
+    padding: 3px 14px;
+}
+
+.list-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.list-remove-btn {
+    background-color: whitesmoke;
+    border: 2px solid #49569d;
+}
+
+.list-remove-btn:hover {
+    background-color: #49569d;
+    color: #fafafa;
+    border: 2px solid #fffffe;
 }

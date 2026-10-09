@@ -23,7 +23,7 @@
             <!-- <button type="button" class="all-lists-btn">All Lists</button> -->
 
             <div class="other-sidebar-btns">
-                <button type="button" class="list-btn">Default List</button>
+                <button type="button" class="list-btn default-btn">Default List</button>
             </div>
         </div>
 
@@ -77,6 +77,36 @@
                         <label for="casual">Casual</label>
                     </div>
                 </fieldset>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="edit-task" class="edit-task-dialog">
+        <form action="" method="" class="edit-task-form">
+            <div class="edit-task-header">
+                <h2>Edit Task</h2>
+
+                <div>
+                    <button type="button" class="edit-task-ok-btn">Ok</button>
+                    <button type="button" commandfor="edit-task" command="close">X</button>
+                </div>
+            </div>
+
+            <div class="edit-task-inputs">
+                <div class="input-fields">
+                    <label for="editTitle">Title:</label>
+                    <input type="text" id="editTitle" name="edit-todoTitle" class="edit-todo-title" required />
+                </div>
+
+                <div class="input-fields">
+                    <label for="editDescription">Description:</label>
+                    <textarea id="editDescription" name="edit-todoDesc" class="edit-todo-desc" rows="5"></textarea>
+                </div>
+
+                <div class="input-fields">
+                    <label for="editDueDate">Due Date:</label>
+                    <input type="date" id="editDueDate" name="edit-todoDate" class="edit-todo-date" />
+                </div>
             </div>
         </form>
     </dialog>

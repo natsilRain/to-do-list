@@ -91,4 +91,23 @@ const createNewListKey = function (name) {
     }
 };
 
-export { removeAllChildNodes, newTaskProcessor, getActiveTasks, updateActiveList, createNewListKey, saveCurrentState };
+const removeListKey = function (name) {
+    if (allLists[name]) {
+        delete allLists[name];
+        saveCurrentState();
+    }
+};
+
+const updateTaskDetails = function (taskId, updatedData) {
+    const activeTasks = getActiveTasks();
+    const task = activeTasks.find(task => task.itemId === taskId);
+
+    if (task) {
+        task.title = updatedData.title;
+        task.description = updatedData.description;
+        task.dueDate - updatedData.dueDate;
+        saveCurrentState();
+    }
+};
+
+export { removeAllChildNodes, newTaskProcessor, getActiveTasks, updateActiveList, createNewListKey, saveCurrentState, removeListKey, updateTaskDetails };
